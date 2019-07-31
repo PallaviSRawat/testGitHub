@@ -1,0 +1,19 @@
+<p>
+  login works!
+</p>
+<!-- ngform is the obj that has ref of entire form -->
+<!-- <form "ngForm">   -->
+<form #f="ngForm">
+  <h1 class="text-primary text-center">Login Form</h1>
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input type="email" class="form-control" name="username" ngModel required email>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" name="password" minlength="6" required ngModel>
+  </div>
+
+  <button class="btn btn-primary btn-sm" (click)="onSubmit(f)">Login</button>
+</form>
