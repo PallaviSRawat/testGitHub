@@ -1,0 +1,32 @@
+
+<div class="container">
+    <ul class="list-unstyled">
+        <li>
+            <div class="row" *ngFor="let user of users">
+                <div class="col-md-3 col-sm-3">
+                    <app-user-image (myevent)="moreInfo2($event)" [user]="user"></app-user-image>
+                        <!-- <img [src]="user.image" width="100px" height="150px" class="img-fluid rounded-circle"><br> -->
+                        <!-- <button class="btn btn-info btn-block" (click)="moreInfo()">More INfo</button> -->
+                        <!-- <button class="btn btn-info btn-block" (click)="moreInfo2(user)">More INfo2</button> -->
+
+                </div>
+                <div class="col-md-9 col-sm-9">
+                    <app-user-info [user]="user"></app-user-info>
+                        <!-- <h2>{{user.firstName}} {{user.lastName}}</h2> -->
+                        <!-- <p>Date of Birth : {{user.dob}}</p>                       -->
+                        <!-- <p>Income: <span [innerHTML] = "user.income"></span></p> -->
+                        <!-- <p>Total Votes: {{user.vote}}</p> -->
+                        <!-- //one way binding -->
+                        <!-- <input type="number" [value]="user.vote">   -->
+                        <!-- two way binding -->
+                        <!-- <input type="number" [value]="user.vote" (change)="user.vote=$event.target.value"> -->
+                        <!-- two way binding through ng model(not an html attribute, comes from angular module , so have to be included else gives error see app.module.ts) -->
+                        <!-- <input type="number" [(ngModel)] ="user.vote"> -->
+                        
+                </div>
+            </div>
+            
+        </li>
+
+    </ul>
+</div>

@@ -1,0 +1,14 @@
+<p>
+  user-info works!
+</p>
+<h2>{{user.firstName}} {{user.lastName}}</h2>
+<p [ngClass] = "dynamicClasses">Date of Birth : {{user.dob}}</p>                      
+<p *ngIf="user.isWorking==true">Income: <span [innerHTML] = "user.income"></span></p>
+<!-- <button (click)>Toggle</button> -->
+<p>Total Votes: {{user.vote}}</p>
+<!-- //one way binding -->
+<input type="number" [value]="user.vote">  
+<!-- two way binding -->
+<input type="number" [value]="user.vote" (change)="user.vote=$event.target.value">
+<!-- two way binding through ng model(not an html attribute, comes from angular module , so have to be included else gives error see app.module.ts) -->
+<input type="number" [(ngModel)] ="user.vote">
