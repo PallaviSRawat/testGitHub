@@ -1,0 +1,58 @@
+package com.rbs.app;
+
+import java.sql.Connection;
+
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Application {
+	static Application mApplication;
+	boolean status;
+	Scanner mScanner;
+	Connection con;
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+	public static Application getInstance() {
+		if(mApplication == null)
+			return mApplication = new Application();
+		else
+			return mApplication;
+	}
+	public Scanner getScannerInstance() {
+		if(mScanner == null)
+			return mScanner = new Scanner(System.in);
+		else
+			return mScanner;
+	}
+	public void displayMessage(String strMessage) {
+		if(status)
+			System.out.println(strMessage);
+	}
+	
+	public Connection getDBConnection() {
+//		try {
+//		Class.forName("oracle.jdbc.driver.OracleDriver");
+//	} catch (ClassNotFoundException e) {
+//		e.printStackTrace();
+//	}  
+//		
+//		try {
+//			Class.forName("oracle.jdbc.driver.OracleDriver");
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//		}  
+		try {
+			con=DriverManager.getConnection(  
+					"jdbc:oracle:thin:@localhost:1521:orcl","hr","hr");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return con;  
+	}
+
+}

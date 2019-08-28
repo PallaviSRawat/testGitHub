@@ -1,0 +1,73 @@
+<p>
+  login works!
+</p>
+<!-- ngform is the obj that has ref of entire form -->
+<!-- <form "ngForm">   -->
+<!-- <form #f="ngForm">
+  <h1 class="text-primary text-center">Login Form</h1>
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input type="email" class="form-control" name="username" ngModel required email>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" name="password" minlength="6" required ngModel>
+  </div>
+
+  <button [disabled]="!f.valid" class="btn btn-primary btn-sm" (click)="onSubmit(f)">Login</button>
+  Form Status: {{f.valid}}
+</form> -->
+
+
+	<div class="form-style-2">
+		<form #f="ngForm">
+			<input type="radio" name="gender" value="Mr." checked> Mr.
+  			<input type="radio" name="gender" value="Ms."> Ms.
+  			<input type="radio" name="gender" value="Mrs."> Mrs<br><br>
+
+			<label for= "firstname_txt"> First Name: </label>
+			<input type="text" name="firstname_txt" id="firstname_txt" class="input-field" class="form-control" ngModel required>
+			<br>
+
+			<label for= "lastname_txt"> Last Name: </label>
+			<input type="text" name="lastname_txt" id="lastname_txt" class="form-control" ngModel required>
+			<br>
+
+			<label for= "address_txt"> Address: </label>
+      <input type="textarea" name="address_txt" id="address_txt" (input)="onInput(f)" maxlength="120" minlength="4" class="form-control" ngModel required >
+      {{f.value.username}}
+      {{error}}
+			<br>
+
+			<label for= "email"> Email: </label>
+			<input type="email" name="email" id="email" class="form-control" ngModel required>
+			<br>
+			<div style="display:auto;">
+			<label for="Acct_type_select" style="display:content;"><span>Account Type</span>
+				<select name="Acct_type_select" ngModel>
+					<option value="SA Question">SA</option>
+					<option value="CA">CA</option>
+				</select>
+			</label><br>
+			</div>
+			
+			<label for= "amt_number"> Amount: </label>
+<!-- 			<input type="number" name="amt_number" min="10000" max="100000" step="500" required>
+			<br> -->
+			
+			<!-- <input type="range" min="10000" max="100000" id="slider" step="500" oninput="showVal(this.value);" onchange="showVal(this.value);"><input type="text" name="value" id="value" class="special" required><br> -->
+			
+
+			<button type="submit" id="btnSubmit" (click)="onSubmit(f)">Submit</button>
+      Form Status: {{f.valid}}
+		</form>
+	</div>
+	<!-- <script>
+		
+		function showVal(newVal){
+		  document.getElementById("value").value=newVal;
+		}
+
+	</script> -->
+

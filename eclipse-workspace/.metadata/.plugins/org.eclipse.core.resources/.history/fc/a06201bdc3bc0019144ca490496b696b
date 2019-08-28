@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="a1" class="com.rbs.spcore.Address">
+		<constructor-arg value="New Delhi"></constructor-arg>
+		<constructor-arg value="West Delhi"></constructor-arg>
+		<constructor-arg value="India"></constructor-arg>
+	</bean>
+
+
+	<bean id="e" class="com.rbs.spcore.Employee">
+		<constructor-arg value="12" type="int"></constructor-arg>
+		<constructor-arg value="Himanshu"></constructor-arg>
+		<constructor-arg>
+			<ref bean="a1" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="c" class="com.rbs.spcore.Courses">
+		<constructor-arg value="101" type="int"></constructor-arg>
+		<constructor-arg value="B.Tech"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>Ist Year</value>
+				<value>IInd Year</value>
+				<value>IIIrd Year</value>
+				<value>IVth Year</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="d" class="com.rbs.spcore.Duration">
+		<constructor-arg value="101" type="int"></constructor-arg>
+		<constructor-arg value="B.Tech"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>Ist Year</value>
+				<value>IInd Year</value>
+				<value>IIIrd Year</value>
+				<value>IVth Year</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="b1" class="com.rbs.spcore.Branch">
+		<constructor-arg value="CSE"></constructor-arg>
+		<constructor-arg value="4 Years"></constructor-arg>
+	
+	</bean>
+	<bean id="b2" class="com.rbs.spcore.Branch">
+		<constructor-arg value="Mech"></constructor-arg>
+		<constructor-arg value="4 Years"></constructor-arg>
+	
+	</bean>
+		<bean id="b3" class="com.rbs.spcore.Branch">
+		<constructor-arg value="ECE"></constructor-arg>
+		<constructor-arg value="4 Years"></constructor-arg>
+	
+	</bean>
+		<bean id="b4" class="com.rbs.spcore.Branch">
+		<constructor-arg value="ICE"></constructor-arg>
+		<constructor-arg value="4 Years"></constructor-arg>
+	
+	</bean>
+</beans>
+   

@@ -1,0 +1,24 @@
+.form-style-2{
+    max-width: 500px;
+    padding: 20px 12px 10px 20px;
+    font: 13px Arial, Helvetica, sans-serif;
+    display: table-cell;
+}
+.form-style-2 label{
+    display: -webkit-inline-box;
+    margin: 15px 0px 7px 0px;
+    width: 90px;
+}
+.special{
+    margin: 20px;
+    width: 50px;
+}
+
+
+
+input:invalid{
+        border : 2px solid;
+}
+input:valid{
+    border : 2px solid;
+}

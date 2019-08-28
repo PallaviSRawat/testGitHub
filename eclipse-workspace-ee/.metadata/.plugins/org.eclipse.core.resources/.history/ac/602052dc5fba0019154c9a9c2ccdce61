@@ -1,0 +1,80 @@
+package com.rbs.app;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Login
+ */
+@WebServlet("/Login")
+public class Login extends HttpServlet {
+	Application mApplication;
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Login() {
+        super();
+        mApplication=mApplication.getInstance();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		Connection con=mApplication.getDBConnection();
+		ResultSet rs=null;
+		String message="";
+		try {
+			Statement stmt=null;
+			if(con!=null) {
+				 stmt= con.createStatement();
+			}else {
+				message="error";
+			}
+			if(username!= null && !username.equals(""))
+				rs=stmt.executeQuery("select EMP_ID, EMP_NAME, EMP_DEPT_ID from emp where EMP_NAME ='"+username+"'");
+			else
+				message="No such user";
+//			rs=stmt.executeUpdate("Update emp set EMP_ID=40 where EMP_NAME='def'");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block                                        
+			e.printStackTrace();
+		}                                           
+		
+		try {
+			while(rs!=null && rs.next())  
+				message= "Values for user : " +rs.getInt(1)+" "+rs.getString(2)+" "+rs.getInt(3);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
+		response.sendRedirect("www.google.com");  
+//		response.getWriter().append("Served at: ").append(request.getContextPath()).append("\n").append(message);
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

@@ -1,0 +1,23 @@
+<script>
+			var btnSubmit =document.getElementById("btnSubmit");
+			var email =document.getElementById("email");
+			// btnSubmit.addEventListener("click", function(event){
+			// 	// event.preventDefault();
+			// 	// alert("clicked");
+			// 	if(email.validity.typeMismatch){
+			// 		console.log("Mismatch.");
+			// 		email.setCustomValidity("Expecting email format only.")
+			// 	}else{
+			// 		console.log("Match.")
+			// 	}
+			// })
+			email.addEventListener("input", function(event){
+				event.preventDefault();				
+				if(email.validity.typeMismatch){
+					console.log("Mismatch.");
+					email.setCustomValidity("Expecting email format only.")
+				}else{
+					console.log("Match.")
+				}
+			})
+</script>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="a1" class="com.rbs.spcore.Address">
+<!-- 	<property name="city" value="delhi" />
+		<property name="state" value="delhi"/>
+		<property name="country" value="india"></property> -->
+		<constructor-arg value="New Delhi"></constructor-arg>
+		<constructor-arg value="West Delhi"></constructor-arg>
+		<constructor-arg value="India"></constructor-arg>
+	</bean>
+
+
+<!-- 	<bean id="e" class="com.rbs.spcore.Employee">
+		<constructor-arg value="12" type="int"></constructor-arg>
+		<constructor-arg value="Himanshu"></constructor-arg>
+		<constructor-arg>
+			<ref bean="a1" />
+		</constructor-arg>
+	</bean> -->
+<bean id="e" class="com.rbs.spcore.Employee">
+		<property name="id" value="11" />
+		<property name="name" value="pallavi"/>
+		<property name="address" ref="a1"></property>  
+</bean>
+<!-- 	<bean id="c" class="com.rbs.spcore.Courses">
+		<constructor-arg value="101" type="int"></constructor-arg>
+		<constructor-arg value="B.Tech"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>Ist Year</value>
+				<value>IInd Year</value>
+				<value>IIIrd Year</value>
+				<value>IVth Year</value>
+			</list>
+		</constructor-arg>
+	</bean> -->
+	<bean id="c" class="com.rbs.spcore.Courses">
+		<constructor-arg value="101" type="int"></constructor-arg>
+		<constructor-arg value="B.Tech"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<ref bean="b1"/>
+				<ref bean="b2"/>
+				<ref bean="b3"/>
+				<ref bean="b4"/>
+			</list>
+		</constructor-arg>
+		<constructor-arg>
+			<map>
+				<entry key-ref="b1" value-ref="f1"/>
+				<entry key-ref="b2" value-ref="f2"/>
+				<entry key-ref="b3" value-ref="f3"/>
+				<entry key-ref="b4" value-ref="f4"/>
+			</map>
+
+		</constructor-arg>
+	</bean>
+	
+	<bean id="d" class="com.rbs.spcore.Duration">
+		<constructor-arg value="101" type="int"></constructor-arg>
+		<constructor-arg value="B.Tech"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>Ist Year</value>
+				<value>IInd Year</value>
+				<value>IIIrd Year</value>
+				<value>IVth Year</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="b1" class="com.rbs.spcore.Branch">
+		<constructor-arg value="CSE"></constructor-arg>
+		<constructor-arg value="4 Years"></constructor-arg>
+	
+	</bean>
+	<bean id="b2" class="com.rbs.spcore.Branch">
+		<constructor-arg value="Mech"></constructor-arg>
+		<constructor-arg value="4 Years"></constructor-arg>
+	
+	</bean>
+		<bean id="b3" class="com.rbs.spcore.Branch">
+		<constructor-arg value="ECE"></constructor-arg>
+		<constructor-arg value="4 Years"></constructor-arg>
+	
+	</bean>
+		<bean id="b4" class="com.rbs.spcore.Branch">
+		<constructor-arg value="CSE"></constructor-arg>
+		<constructor-arg value="4 Years"></constructor-arg>
+	
+	</bean>
+	
+	<bean id="f1" class="com.rbs.spcore.Fees">
+		<constructor-arg value="80,000"></constructor-arg>
+		<constructor-arg value="5,000"></constructor-arg>
+		<constructor-arg value="85,000"></constructor-arg>
+	
+	</bean>
+	<bean id="f2" class="com.rbs.spcore.Fees">
+		<constructor-arg value="90,000"></constructor-arg>
+		<constructor-arg value="7,000"></constructor-arg>
+		<constructor-arg value="97,000"></constructor-arg>
+	
+	</bean>
+		<bean id="f3" class="com.rbs.spcore.Fees">
+		<constructor-arg value="73,000"></constructor-arg>
+		<constructor-arg value="4,000"></constructor-arg>
+		<constructor-arg value="77,000"></constructor-arg>
+	
+	</bean>
+		<bean id="f4" class="com.rbs.spcore.Fees">
+		<constructor-arg value="88,000"></constructor-arg>
+		<constructor-arg value="6,000"></constructor-arg>
+		<constructor-arg value="94,000"></constructor-arg>
+	
+	</bean>
+</beans>
+   

@@ -1,0 +1,67 @@
+<DOCTYPE! html>
+<html lang='en'>
+<head>
+		<title>doc11</title>
+</head>
+<body>
+		<form>
+				<label for= "email"> Email: </label>
+				<input type="email" name="email" id="email" required>
+				<br>
+				<lable for= "number"> Number: </label>
+				<input type="number" name="number" min="12">
+				<br>
+				<label for= "color"> Color : </label>
+				<input type="color" name="color">
+				<br>
+				<label for="date"> Date: </label>
+				<input type="date" name="date">
+				<br>
+				<label for="search"> Search: </label>
+				<input type="search" name="search" minlength="6" maxlength="13">
+				<br>
+				<label for="pattern	"> Preferred Drink : </label>
+				<input type="text" pattern="abc|xyz" >
+				<br>
+				<label for="pattern	"> Preferred Drink 2 : </label>
+				<input type="text" pattern="[Cc]offee|[Ll]atte" >
+				<br>
+				<label for="pattern	"> Preferred Drink 3 : </label>
+				<input type="text" pattern="^[2-9]\d{2}-\d{3}-\d{4}$">
+				<br>
+				
+				<button type="submit" id="btnSubmit">Submit</button>
+		</form>
+		<script>
+			var btnSubmit =document.getElementById("btnSubmit");
+			var email =document.getElementById("email");
+			// btnSubmit.addEventListener("click", function(event){
+			// 	// event.preventDefault();
+			// 	// alert("clicked");
+			// 	if(email.validity.typeMismatch){
+			// 		console.log("Mismatch.");
+			// 		email.setCustomValidity("Expecting email format only.")
+			// 	}else{
+			// 		console.log("Match.")
+			// 	}
+			// })
+			email.addEventListener("input", function(event){
+				event.preventDefault();				
+				if(email.validity.typeMismatch){
+					console.log("Mismatch.");
+					email.setCustomValidity("Expecting email format only.")
+				}else{
+					console.log("Match.")
+				}
+			})
+		</script>
+		<style>
+			input:invalid{
+				border : 2px red solid;
+			}
+			input:valid{
+				border : 2px green solid;
+			}
+		</style>
+</body>
+</html>

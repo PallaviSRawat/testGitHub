@@ -1,0 +1,106 @@
+<DOCTYPE! html>
+<html lang='en'>
+<head>
+		<title>doc11</title>
+</head>
+<body>
+	<div class="form-style-2">
+		<form>
+				<label for= "id_txt"> ID: </label>
+				<input type="text" name="id_txt" id="id_txt" required>
+				<br>
+
+				<label for= "color"> Color : </label>
+				<input type="color" name="color" id="color_pallette">
+				<br>
+				
+				<label for= "drink_txt"> Drink: </label>
+				<input type="text" name="drink_txt" id="drink_txt" >
+				<br>
+
+				<button type="Submit" id="btnSave">Save</button>
+				<button type="button" id="btnRemove">Remove</button>
+				<button type="button" id="btnClear">Clear</button>
+				<button type="button" id="btnGetFav">Get Favourite</button>
+		</form>
+	</div>
+		<script>
+			var btnSave = document.getElementById("btnSave");
+			var btnRemove = document.getElementById("btnRemove");
+			var btnClear = document.getElementById("btnClear");
+			var btnGetFav = document.getElementById("btnGetFav");
+
+			var drink_txt = document.getElementById("drink_txt");
+			var id_txt = document.getElementById("id_txt");
+			var color_select = document.getElementById("color_pallette");
+
+			btnSave.addEventListener("click", function(event){
+				event.preventDefault();
+				alert(JSON.stringify([color_select.value,drink_txt.value]));
+				localStorage.setItem(id_txt.value,JSON.stringify([color_select.value,drink_txt.value]));
+			})
+
+			btnGetFav.addEventListener("click", function(event){
+				// event.preventDefault();
+				if(localStorage.getItem(id_txt.value)){
+						var item=JSON.parse(localStorage.getItem(id_txt.value));
+						alert("Color: "+item[0]+", Drink: "+item[1]);
+				}else{
+						alert("ID not available!");
+				}
+			})
+
+			btnClear.addEventListener("click", function(event){
+				// event.preventDefault();
+				drink_txt.value="";
+				id_txt.value="";
+				color_select="#000000";
+			})
+
+			btnRemove.addEventListener("click", function(event){
+				// event.preventDefault();
+				if(localStorage.getItem(id_txt.value)){
+					localStorage.removeItem(id_txt.value);
+				}else{
+					alert("ID not available.");
+				}
+			})
+
+			// btnSave.addEventListener("click", function(event){
+			// 	event.preventDefault();
+			// 	localStorage.setItem("color",color_select.value);
+			// })
+
+			// var email = document.getElementById("email");
+			// email.addEventListener("input", function(event){
+			// 	event.preventDefault();				
+			// 	if(email.validity.typeMismatch){
+			// 		console.log("Mismatch.");
+			// 		email.setCustomValidity("Expecting email format only.")
+			// 	}else{
+			// 		console.log("Match.")
+			// 	}
+			// })
+
+		</script>
+		<style>
+		.form-style-2{
+			max-width: 500px;
+			padding: 20px 12px 10px 20px;
+			font: 13px Arial, Helvetica, sans-serif;
+			display: table-cell;
+		}
+		.form-style-2 label{
+			display: -webkit-inline-box;
+			margin: 15px 0px 7px 0px;
+			width: 90px;
+		}
+			input:invalid{
+				border : 2px gray solid;
+			}
+			input:valid{
+				border : 2px gray solid;
+			}
+		</style>
+</body>
+</html>
